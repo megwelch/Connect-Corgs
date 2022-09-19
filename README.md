@@ -3,7 +3,13 @@ Overview:
 ![overview](./images/Overview.png)
 
 Wireframe:
-![wireframe](./images/Wireframe.png)
+![intructionswireframe](./images/Instructions-WF.png)
+
+![gameboardwireframe](./images/Gameboard-WF.png)
+
+![winwireframe](./images/Playerwin-WF.png)
+
+![tiewireframe](./images/Tie-WF.png)
 
 User Story:
 
