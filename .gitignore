@@ -1,0 +1,3 @@
+# any file name listed in this file will not be tracked by git 
+# unless a file was added to this file after git started tracking it
+.DS_Store
