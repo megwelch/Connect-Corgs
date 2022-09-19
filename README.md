@@ -2,11 +2,13 @@
 Overview:
 ![overview](./images/Overview.png)
 
-WireFrame:
+Wireframe:
 ![wireframe](./images/Wireframe.png)
 
 User Story:
+
 As a user, I want the ability to:
+
     - Visit connect-corgs site
     - Read instructions of game
     - Choose color of player
@@ -17,6 +19,7 @@ As a user, I want the ability to:
 
 
 Entitiy Relationship Diagram:
+
     - On page load, modal appears with game instructions
     - player1 = X
     - player2 = O
@@ -33,12 +36,13 @@ Entitiy Relationship Diagram:
         - reset(): clears board and prompts player 1 to select color
 
 Planning for week:
--Work on HTML/CSS to get layout of website set up
--Set up javascript to have players be able to switch turns
--Set up javascript to check for win/tie
--Set up javascript to reset game
--Add modal on page load to explain instructions
--If time allows, I would like to make it look like when pieces are placed that they are dropping down from the top of the board
+
+    - Work on HTML/CSS to get layout of website set up
+    - Set up javascript to have players be able to switch turns
+    - Set up javascript to check for win/tie
+    - Set up javascript to reset game
+    - Add modal on page load to explain instructions
+    - If time allows, I would like to make it look like when pieces are placed that they are dropping down from the top of the board
 
 
 Back-up Idea: snake game using canvas
