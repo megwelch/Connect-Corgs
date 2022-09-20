@@ -1,0 +1,164 @@
+body {
+    background-color:  rgb(149, 217, 251);
+    background: cover;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    font-family: 'Poppins', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 3fr 3fr 3fr;
+    height: 95vh;
+    gap: 15px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 20px 0px 10px 0px;
+}
+
+.title {
+    background-color: #fdb44b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 105px;
+    border-radius: 30px;
+    padding: 0px 40px 0px 40px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+    color: rgb(220, 78, 58);
+    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-width: 3px;
+}
+
+.title-pic {
+    height: 55px;
+    padding: 10px 4px 0px 4px;
+    margin: 0px;
+    vertical-align: middle;
+    margin-bottom: 20px;
+}
+
+.choose-player {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    display: flex;
+    display: grid;
+    grid-template-rows: 40px 80px;
+    border: black solid;
+    width: 250px;
+    height: 200px;
+    justify-self: center;
+    align-self: end;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#restart-btn {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    justify-self: center;
+    align-self: start;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+
+}
+
+button {
+    width: 250px;
+    height: 100px;
+    font-size: 40px;
+    background-color: #fdb44b;
+    color: #00204a;
+    border: #00204a solid 2px;
+    border-radius: 5px;
+}
+
+.choose-text {
+    text-align: center;
+    font-size: 25px;
+    padding: 10px;
+    line-height: 30px;
+}
+
+.tokens {
+    display: flex;
+    justify-content: center;
+    height: 90px;
+    gap: 20px;
+    padding-top: 25px;
+}
+
+.gameboard {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    display: flex;
+    justify-content: center;
+    width: 725px;
+    height: 600px;
+    margin: 0 auto;
+    align-items: center;
+    background-color: #005792;
+    border-radius: 10px;
+}
+
+.player-turn {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    justify-self: center;
+    align-self: end;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    border: solid black 1px;
+    font-size: 25px;
+    width: 250px;
+    height: 100px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.player-turn-text {
+    align-items: center;
+}
+
+.circle {
+    display: flex;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    justify-content: center;
+    margin: 5px;
+    background-color: white;
+
+}
+
+.snoots {
+    background-image: url("./images/red-chip.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 65%;
+}
