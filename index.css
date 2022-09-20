@@ -38,18 +38,18 @@ main {
 h1 {
     text-align: center;
     font-size: 60px;
-    color: rgb(220, 78, 58);
+    color: rgb(221, 70, 53);
     -webkit-text-stroke-color: white;
     -webkit-text-stroke-width: 3px;
 }
 
-.title-pic {
+/* .title-pic {
     height: 55px;
     padding: 10px 4px 0px 4px;
     margin: 0px;
     vertical-align: middle;
     margin-bottom: 20px;
-}
+} */
 
 .choose-player {
     grid-column-start: 1;
@@ -131,6 +131,7 @@ button {
     align-self: end;
     margin-bottom: 20px;
     display: flex;
+    justify-content: center;
     align-items: center;
     border: solid black 1px;
     font-size: 25px;
@@ -139,10 +140,6 @@ button {
     padding: 20px;
     background-color: white;
     border-radius: 5px;
-}
-
-.player-turn-text {
-    align-items: center;
 }
 
 .circle {
@@ -160,5 +157,5 @@ button {
     background-image: url("./images/red-chip.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 65%;
+    background-size: 90%;
 }
