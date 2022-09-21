@@ -1,5 +1,7 @@
 const columns = document.getElementsByClassName("column")
 const columnsArr = Array.from(columns)
+const circles = document.getElementsByClassName('circle')
+const circleArr = Array.from(circles)
 const winCombos = [
     [0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5], 
     [6, 7, 8, 9], [7, 8, 9, 10], [8, 9, 10, 11],
@@ -25,20 +27,141 @@ const winCombos = [
     [11, 16, 21, 26], [16, 21, 26, 31], [21, 26, 31, 36],
     [17, 22, 27, 32], [22, 27, 32, 37], [23, 28, 33, 38]
 ]
+const column1Divs = document.getElementsByClassName("circle1")
+const column1 = Array.from(column1Divs)
+const column2Divs = document.getElementsByClassName("circle2")
+const column2 = Array.from(column2Divs)
+const column3Divs = document.getElementsByClassName("circle3")
+const column3 = Array.from(column3Divs)
+const column4Divs = document.getElementsByClassName("circle4")
+const column4 = Array.from(column4Divs)
+const column5Divs = document.getElementsByClassName("circle5")
+const column5 = Array.from(column5Divs)
+const column6Divs = document.getElementsByClassName("circle6")
+const column6 = Array.from(column6Divs)
+const column7Divs = document.getElementsByClassName("circle7")
+const column7 = Array.from(column7Divs)
+
+
+
+// class Column {
+//     constructor(id, circleArray){
+//         this.id = id,
+//         this.circleArray = circleArray
+//     }
+// }
 
 const startGame = () => {
     columnsArr.forEach(column => column.addEventListener('click', playSlot))
 }
 
 const playSlot = (event) => {
-    const playedSlot = event.target.getAttribute('id')
-    console.log(playedSlot)
-    let column = event.target.parentElement
-    console.log(column)
-    console.log(column.lastChild.innerHTML)
-    if (column.lastChild.innerHTML === ''){
-        column.lastChild.classList.add('snoots')
+    event.currentTarget = this
+    let column = event.currentTarget.getAttribute('id')
+    // column 1
+    if(column === 'column1'){
+        for(i = column1.length - 1; i >= 0; i--){
+            let slot = column1[i]
+            console.log(slot)
+            let taken = slot.classList.contains('snoots')
+                if(slot[i] = taken){
+                    continue
+                } else {
+                    slot.classList.add('snoots')
+                    break
+                } 
+        }
+    }
+    // column 2
+    if(column === 'column2'){
+        for(i = column2.length - 1; i >= 0; i--){
+            let slot = column2[i]
+            console.log(slot)
+            let taken = slot.classList.contains('snoots')
+                if(slot[i] = taken){
+                    continue
+                } else {
+                    slot.classList.add('snoots')
+                    break
+                } 
+        }
+    }
+    // column 3
+    if(column === 'column3'){
+        for(i = column3.length - 1; i >= 0; i--){
+            let slot = column3[i]
+            console.log(slot)
+            let taken = slot.classList.contains('snoots')
+                if(slot[i] = taken){
+                    continue
+                } else {
+                    slot.classList.add('snoots')
+                    break
+                } 
+        }
+    }
+    // column 4
+    if(column === 'column4'){
+        for(i = column4.length - 1; i >= 0; i--){
+            let slot = column4[i]
+            console.log(slot)
+            let taken = slot.classList.contains('snoots')
+                if(slot[i] = taken){
+                    continue
+                } else {
+                    slot.classList.add('snoots')
+                    break
+                } 
+        }
+    }
+    // column 5
+    if(column === 'column5'){
+        for(i = column5.length - 1; i >= 0; i--){
+            let slot = column5[i]
+            console.log(slot)
+            let taken = slot.classList.contains('snoots')
+                if(slot[i] = taken){
+                    continue
+                } else {
+                    slot.classList.add('snoots')
+                    break
+                } 
+        }
+    }
+    // column 6
+    if(column === 'column6'){
+        for(i = column6.length - 1; i >= 0; i--){
+            let slot = column6[i]
+            console.log(slot)
+            let taken = slot.classList.contains('snoots')
+                if(slot[i] = taken){
+                    continue
+                } else {
+                    slot.classList.add('snoots')
+                    break
+                } 
+        }
+    }
+    // column 7
+    if(column === 'column7'){
+        for(i = column7.length - 1; i >= 0; i--){
+            let slot = column7[i]
+            console.log(slot)
+            let taken = slot.classList.contains('snoots')
+                if(slot[i] = taken){
+                    continue
+                } else {
+                    slot.classList.add('snoots')
+                    break
+                } 
+        }
     }
 }
 
+
+
 startGame()
+
+// get array of divs from column
+// loop through array backwards to check if space is available
+// at first available spot, add chip
