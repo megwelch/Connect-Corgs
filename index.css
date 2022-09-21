@@ -80,7 +80,6 @@ h1 {
     display: flex;
     justify-content: center;
     margin-top: 40px;
-
 }
 
 button {
@@ -88,9 +87,10 @@ button {
     height: 100px;
     font-size: 40px;
     background-color: rgb(243, 222, 97);
-    color: #00204a;
-    border: #00204a solid 2px;
+    color: #005792;
+    border: #005792 solid 3px;
     border-radius: 10px;
+    font-weight: 800;
 }
 
 .choose-text {
@@ -103,9 +103,12 @@ button {
 .tokens {
     display: flex;
     justify-content: center;
+}
+
+.token1, .token2 {
+    display: flex;
     height: 90px;
-    gap: 20px;
-    padding-top: 25px;
+    padding: 45px 10px 0px 10px;
 }
 
 .gameboard {
@@ -153,7 +156,7 @@ button {
     background-color: white;
 }
 
-.snoots {
+.red {
     background-image: url("./images/red-chip.png");
     background-position: center;
     background-repeat: no-repeat;
@@ -162,4 +165,18 @@ button {
 
 .yellow {
     background-color: yellow;
+}
+
+.fall {
+    animation-name: fall-animation;
+    animation-duration: 500ms;
+}
+
+@keyframes fall-animation {
+    from {
+        transform: translateY(-300px);
+    }
+    to {
+        transform: translateY(0);
+    }
 }

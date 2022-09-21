@@ -2,6 +2,9 @@ const columns = document.getElementsByClassName("column")
 const columnsArr = Array.from(columns)
 const circles = document.getElementsByClassName('circle')
 const circleArr = Array.from(circles)
+let tokens = document.querySelector(".tokens")
+// let isPlayer1 = true
+let currPlayer = true
 const winCombos = [
     [0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5], 
     [6, 7, 8, 9], [7, 8, 9, 10], [8, 9, 10, 11],
@@ -43,31 +46,39 @@ const column7Divs = document.getElementsByClassName("circle7")
 const column7 = Array.from(column7Divs)
 
 
-
-// class Column {
-//     constructor(id, circleArray){
-//         this.id = id,
-//         this.circleArray = circleArray
-//     }
-// }
-
 const startGame = () => {
     columnsArr.forEach(column => column.addEventListener('click', playSlot))
 }
 
+const choosePlayer = (event) => {
+    let color = event.target.getAttribute('class')
+    if(color === 'token1'){
+        currPlayer = true
+    } else if (color === 'token2'){
+        currPlayer = false
+    }
+    console.log(currPlayer)
+}
+
+tokens.addEventListener('click', choosePlayer, {once: true})
+
 const playSlot = (event) => {
     event.currentTarget = this
     let column = event.currentTarget.getAttribute('id')
+    let red = document.getElementsByClassName('red')
+    let yellow = document.getElementsByClassName('yellow')
+    const currPlayer = choosePlayer() ? red : yellow
+
     // column 1
     if(column === 'column1'){
         for(i = column1.length - 1; i >= 0; i--){
             let slot = column1[i]
             console.log(slot)
-            let taken = slot.classList.contains('snoots')
+            let taken = slot.classList.contains(red || yellow)
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add('snoots')
+                    slot.classList.add(currPlayer)
                     break
                 } 
         }
@@ -77,11 +88,11 @@ const playSlot = (event) => {
         for(i = column2.length - 1; i >= 0; i--){
             let slot = column2[i]
             console.log(slot)
-            let taken = slot.classList.contains('snoots')
+            let taken = slot.classList.contains('red')
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add('snoots')
+                    slot.classList.add('red')
                     break
                 } 
         }
@@ -91,11 +102,11 @@ const playSlot = (event) => {
         for(i = column3.length - 1; i >= 0; i--){
             let slot = column3[i]
             console.log(slot)
-            let taken = slot.classList.contains('snoots')
+            let taken = slot.classList.contains('red')
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add('snoots')
+                    slot.classList.add('red')
                     break
                 } 
         }
@@ -105,11 +116,11 @@ const playSlot = (event) => {
         for(i = column4.length - 1; i >= 0; i--){
             let slot = column4[i]
             console.log(slot)
-            let taken = slot.classList.contains('snoots')
+            let taken = slot.classList.contains('red')
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add('snoots')
+                    slot.classList.add('red')
                     break
                 } 
         }
@@ -119,11 +130,11 @@ const playSlot = (event) => {
         for(i = column5.length - 1; i >= 0; i--){
             let slot = column5[i]
             console.log(slot)
-            let taken = slot.classList.contains('snoots')
+            let taken = slot.classList.contains('red')
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add('snoots')
+                    slot.classList.add('red')
                     break
                 } 
         }
@@ -133,11 +144,11 @@ const playSlot = (event) => {
         for(i = column6.length - 1; i >= 0; i--){
             let slot = column6[i]
             console.log(slot)
-            let taken = slot.classList.contains('snoots')
+            let taken = slot.classList.contains('red')
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add('snoots')
+                    slot.classList.add('red')
                     break
                 } 
         }
@@ -147,21 +158,15 @@ const playSlot = (event) => {
         for(i = column7.length - 1; i >= 0; i--){
             let slot = column7[i]
             console.log(slot)
-            let taken = slot.classList.contains('snoots')
+            let taken = slot.classList.contains('red')
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add('snoots')
+                    slot.classList.add('red')
                     break
                 } 
         }
     }
 }
 
-
-
 startGame()
-
-// get array of divs from column
-// loop through array backwards to check if space is available
-// at first available spot, add chip
