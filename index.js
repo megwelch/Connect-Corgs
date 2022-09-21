@@ -2,9 +2,10 @@ const columns = document.getElementsByClassName("column")
 const columnsArr = Array.from(columns)
 const circles = document.getElementsByClassName('circle')
 const circleArr = Array.from(circles)
-let tokens = document.querySelector(".tokens")
-// let isPlayer1 = true
-let currPlayer = true
+let options = document.querySelector(".options")
+let player1 = 'red'
+let player2 = 'yellow'
+let isCurrPlayer1 = true
 const winCombos = [
     [0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5], 
     [6, 7, 8, 9], [7, 8, 9, 10], [8, 9, 10, 11],
@@ -51,34 +52,34 @@ const startGame = () => {
 }
 
 const choosePlayer = (event) => {
-    let color = event.target.getAttribute('class')
-    if(color === 'token1'){
-        currPlayer = true
-    } else if (color === 'token2'){
-        currPlayer = false
+    let pickedColor = event.target.getAttribute('class')
+    if (pickedColor === 'token1'){
+        player1 = 'red'
+        player2 = 'yellow'
+    } else if (pickedColor === 'token2'){
+        player1 = 'yellow'
+        player2 = 'red'
     }
-    console.log(currPlayer)
 }
 
-tokens.addEventListener('click', choosePlayer, {once: true})
+options.addEventListener('click', choosePlayer, {once: true})
 
 const playSlot = (event) => {
     event.currentTarget = this
     let column = event.currentTarget.getAttribute('id')
-    let red = document.getElementsByClassName('red')
-    let yellow = document.getElementsByClassName('yellow')
-    const currPlayer = choosePlayer() ? red : yellow
+    let playerColor = isCurrPlayer1 ? player1 : player2
+    const tokens = '.red, .yellow'
+    isCurrPlayer1 = !isCurrPlayer1
 
     // column 1
     if(column === 'column1'){
         for(i = column1.length - 1; i >= 0; i--){
             let slot = column1[i]
-            console.log(slot)
-            let taken = slot.classList.contains(red || yellow)
+            let taken = (slot.matches(tokens))
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add(currPlayer)
+                    slot.classList.add(playerColor)
                     break
                 } 
         }
@@ -87,12 +88,11 @@ const playSlot = (event) => {
     if(column === 'column2'){
         for(i = column2.length - 1; i >= 0; i--){
             let slot = column2[i]
-            console.log(slot)
-            let taken = slot.classList.contains('red')
+            let taken = (slot.matches(tokens))
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add('red')
+                    slot.classList.add(playerColor)
                     break
                 } 
         }
@@ -101,12 +101,11 @@ const playSlot = (event) => {
     if(column === 'column3'){
         for(i = column3.length - 1; i >= 0; i--){
             let slot = column3[i]
-            console.log(slot)
-            let taken = slot.classList.contains('red')
+            let taken = (slot.matches(tokens))
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add('red')
+                    slot.classList.add(playerColor)
                     break
                 } 
         }
@@ -115,12 +114,11 @@ const playSlot = (event) => {
     if(column === 'column4'){
         for(i = column4.length - 1; i >= 0; i--){
             let slot = column4[i]
-            console.log(slot)
-            let taken = slot.classList.contains('red')
+            let taken = (slot.matches(tokens))
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add('red')
+                    slot.classList.add(playerColor)
                     break
                 } 
         }
@@ -129,12 +127,11 @@ const playSlot = (event) => {
     if(column === 'column5'){
         for(i = column5.length - 1; i >= 0; i--){
             let slot = column5[i]
-            console.log(slot)
-            let taken = slot.classList.contains('red')
+            let taken = (slot.matches(tokens))
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add('red')
+                    slot.classList.add(playerColor)
                     break
                 } 
         }
@@ -143,12 +140,11 @@ const playSlot = (event) => {
     if(column === 'column6'){
         for(i = column6.length - 1; i >= 0; i--){
             let slot = column6[i]
-            console.log(slot)
-            let taken = slot.classList.contains('red')
+            let taken = (slot.matches(tokens))
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add('red')
+                    slot.classList.add(playerColor)
                     break
                 } 
         }
@@ -157,12 +153,11 @@ const playSlot = (event) => {
     if(column === 'column7'){
         for(i = column7.length - 1; i >= 0; i--){
             let slot = column7[i]
-            console.log(slot)
-            let taken = slot.classList.contains('red')
+            let taken = (slot.matches(tokens))
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add('red')
+                    slot.classList.add(playerColor)
                     break
                 } 
         }

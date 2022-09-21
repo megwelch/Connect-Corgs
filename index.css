@@ -100,7 +100,7 @@ button {
     line-height: 30px;
 }
 
-.tokens {
+.options {
     display: flex;
     justify-content: center;
 }
@@ -156,14 +156,14 @@ button {
     background-color: white;
 }
 
-.red {
+.red, #red {
     background-image: url("./images/red-chip.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 90%;
 }
 
-.yellow {
+.yellow, #yellow {
     background-color: yellow;
 }
 
