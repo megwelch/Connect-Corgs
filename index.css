@@ -44,14 +44,6 @@ h1 {
     -webkit-text-stroke-width: 3px;
 }
 
-/* .title-pic {
-    height: 55px;
-    padding: 10px 4px 0px 4px;
-    margin: 0px;
-    vertical-align: middle;
-    margin-bottom: 20px;
-} */
-
 .choose-player {
     grid-column-start: 1;
     grid-column-end: 1;
@@ -60,17 +52,54 @@ h1 {
     display: flex;
     display: grid;
     grid-template-rows: 40px 80px;
-    border: black solid;
     width: 250px;
     height: 200px;
     justify-self: center;
     align-self: end;
     margin-bottom: 20px;
-    background-color: white;
-    border-radius: 5px;
+    background-color: #005792;
+    border: rgb(243, 222, 97) solid 4px;
+    border-radius: 10px;
 }
 
-#restart-btn {
+span {
+    font-weight: 600;
+    font-size: 25px;
+    
+}
+
+.choose-text {
+    text-align: center;
+    height: 75px;
+    padding: 10px 10px 40px 10px;
+    line-height: 30px;
+    color: white;
+    font-weight: 200;
+    font-size: 20px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+}
+
+.token1 {
+    display: flex;
+    height: 90px;
+    padding: 45px 10px 0px 10px;
+}
+
+.token2 {
+    display: flex;
+    height: 90px;
+    padding: 45px 10px 0px 10px;
+}
+
+.token1, .token2:hover {
+    cursor: pointer;
+}
+
+#new-game-btn {
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 3;
@@ -83,8 +112,8 @@ h1 {
 }
 
 button {
-    width: 250px;
-    height: 100px;
+    width: 296px;
+    height: 146px;
     font-size: 40px;
     background-color: rgb(243, 222, 97);
     color: #005792;
@@ -93,22 +122,8 @@ button {
     font-weight: 800;
 }
 
-.choose-text {
-    text-align: center;
-    font-size: 25px;
-    padding: 10px;
-    line-height: 30px;
-}
-
-.options {
-    display: flex;
-    justify-content: center;
-}
-
-.token1, .token2 {
-    display: flex;
-    height: 90px;
-    padding: 45px 10px 0px 10px;
+button:hover{
+    cursor: pointer;
 }
 
 .gameboard {
@@ -126,7 +141,11 @@ button {
     border-radius: 10px;
 }
 
-.player-turn {
+.gameboard:hover {
+ cursor: pointer;
+}
+
+.message-board {
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 2;
@@ -142,11 +161,17 @@ button {
     width: 250px;
     height: 100px;
     padding: 20px;
-    background-color: white;
-    border-radius: 5px;
+    background-color: rgb(221, 70, 53);
+    color: white;
+    border: #005792 solid 3px;
+    border-radius: 10px;
 }
 
-.circle1, .circle2, .circle3, .circle4, .circle5, .circle6, .circle7 {
+.message-board-text {
+    text-align: center;
+}
+
+.slot {
     display: flex;
     height: 90px;
     width: 90px;
@@ -156,25 +181,28 @@ button {
     background-color: white;
 }
 
-.red, #red {
+.red{
     background-image: url("./images/red-chip.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 90%;
 }
 
-.yellow, #yellow {
-    background-color: yellow;
+.yellow {
+    background-image: url("./images/yellow-chip.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
 .fall {
     animation-name: fall-animation;
-    animation-duration: 500ms;
+    animation-duration: 700ms;
 }
 
 @keyframes fall-animation {
     from {
-        transform: translateY(-300px);
+        transform: translateY(-700px);
     }
     to {
         transform: translateY(0);

@@ -7,7 +7,7 @@
     <link href="./index.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800&display=swap" rel="stylesheet">
     <script src="./index.js" defer></script>
     <title>Connect-Corgs</title>
 </head>
@@ -18,81 +18,80 @@
                 <h1>CONNECT-CORGS</h1>
             </div>
         </header>
-
         
         <container class="choose-player">
-            <div class="choose-text">Player #1 - Choose your token:</div>
+            <div class="choose-text">Player #1 - Choose <span>snoots</span> or <span>boots</span></div>
             <div class="options">
                 <div><img class="token1" src="./images/red-chip.png"></img></div>
-                <div><img class="token2" src="./images/red-chip.png"></img></div>
+                <div><img class="token2" src="./images/yellow-chip.png"></img></div>
             </div>
         </container>
 
-        <div id="restart-btn">
+        <div id="new-game-btn">
             <button>New Game</button>
         </div>
 
         <container class="gameboard">
             <div class="column" id="column1">
-                <div class="circle1" id="0"></div>
-                <div class="circle1" id="1"></div>
-                <div class="circle1" id="2"></div>
-                <div class="circle1" id="3"></div>
-                <div class="circle1" id="4"></div>
-                <div class="circle1" id="5"></div>    
+                <div class="circle1 slot" id="0"></div>
+                <div class="circle1 slot" id="1"></div>
+                <div class="circle1 slot" id="2"></div>
+                <div class="circle1 slot" id="3"></div>
+                <div class="circle1 slot" id="4"></div>
+                <div class="circle1 slot" id="5"></div>    
             </div>
             <div class="column" id="column2">
-                <div class="circle2" id="6"></div>
-                <div class="circle2" id="7"></div>
-                <div class="circle2" id="8"></div>
-                <div class="circle2" id="9"></div>
-                <div class="circle2" id="10"></div>
-                <div class="circle2" id="11"></div>    
+                <div class="circle2 slot" id="6"></div>
+                <div class="circle2 slot" id="7"></div>
+                <div class="circle2 slot" id="8"></div>
+                <div class="circle2 slot" id="9"></div>
+                <div class="circle2 slot" id="10"></div>
+                <div class="circle2 slot" id="11"></div>    
             </div>
             <div class="column" id="column3">
-                <div class="circle3" id="12"></div>
-                <div class="circle3" id="13"></div>
-                <div class="circle3" id="14"></div>
-                <div class="circle3" id="15"></div>
-                <div class="circle3" id="16"></div>
-                <div class="circle3" id="17"></div>    
+                <div class="circle3 slot" id="12"></div>
+                <div class="circle3 slot" id="13"></div>
+                <div class="circle3 slot" id="14"></div>
+                <div class="circle3 slot" id="15"></div>
+                <div class="circle3 slot" id="16"></div>
+                <div class="circle3 slot" id="17"></div>    
             </div>
             <div class="column" id="column4">
-                <div class="circle4" id="18"></div>
-                <div class="circle4" id="19"></div>
-                <div class="circle4" id="20"></div>
-                <div class="circle4" id="21"></div>
-                <div class="circle4" id="22"></div>
-                <div class="circle4" id="23"></div>
+                <div class="circle4 slot" id="18"></div>
+                <div class="circle4 slot" id="19"></div>
+                <div class="circle4 slot" id="20"></div>
+                <div class="circle4 slot" id="21"></div>
+                <div class="circle4 slot" id="22"></div>
+                <div class="circle4 slot" id="23"></div>
             </div>
             <div class="column" id="column5">
-                <div class="circle5" id="24"></div>
-                <div class="circle5" id="25"></div>
-                <div class="circle5" id="26"></div>
-                <div class="circle5" id="27"></div>
-                <div class="circle5" id="28"></div>
-                <div class="circle5" id="29"></div>
+                <div class="circle5 slot" id="24"></div>
+                <div class="circle5 slot" id="25"></div>
+                <div class="circle5 slot" id="26"></div>
+                <div class="circle5 slot" id="27"></div>
+                <div class="circle5 slot" id="28"></div>
+                <div class="circle5 slot" id="29"></div>
             </div>
             <div class="column" id="column6">
-                <div class="circle6" id="30"></div>
-                <div class="circle6" id="31"></div>
-                <div class="circle6" id="32"></div>
-                <div class="circle6" id="33"></div>
-                <div class="circle6" id="34"></div>
-                <div class="circle6" id="35"></div>
+                <div class="circle6 slot" id="30"></div>
+                <div class="circle6 slot" id="31"></div>
+                <div class="circle6 slot" id="32"></div>
+                <div class="circle6 slot" id="33"></div>
+                <div class="circle6 slot" id="34"></div>
+                <div class="circle6 slot" id="35"></div>
             </div>
             <div class="column" id="column7">
-                <div class="circle7" id="36"></div>
-                <div class="circle7" id="37"></div>
-                <div class="circle7" id="38"></div>
-                <div class="circle7" id="39"></div>
-                <div class="circle7" id="40"></div>
-                <div class="circle7" id="41"></div>
+                <div class="circle7 slot" id="36"></div>
+                <div class="circle7 slot" id="37"></div>
+                <div class="circle7 slot" id="38"></div>
+                <div class="circle7 slot" id="39"></div>
+                <div class="circle7 slot" id="40"></div>
+                <div class="circle7 slot" id="41"></div>
             </div>
         </container>
 
-        <div class="player-turn">
-            <div class="player-turn-text">It's Player #1's Turn</div>
+        <div class="message-board">
+            <div class="message-board-text">Choose your token to start the game!</div>
         </div>
     </main>
 </body>

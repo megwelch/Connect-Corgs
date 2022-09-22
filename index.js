@@ -1,11 +1,14 @@
-const columns = document.getElementsByClassName("column")
-const columnsArr = Array.from(columns)
-const circles = document.getElementsByClassName('circle')
-const circleArr = Array.from(circles)
+const columnsArr = Array.from(document.getElementsByClassName("column"))
+const slotsArr = Array.from(document.getElementsByClassName('slot'))
+const messageBoard = document.querySelector('.message-board-text')
 let options = document.querySelector(".options")
+let newGameBtn = document.querySelector('#new-game-btn')
 let player1 = 'red'
 let player2 = 'yellow'
 let isCurrPlayer1 = true
+let moveCount = 0
+let isGameOver = false
+const tokens = '.red,.yellow'
 const winCombos = [
     [0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5], 
     [6, 7, 8, 9], [7, 8, 9, 10], [8, 9, 10, 11],
@@ -45,9 +48,16 @@ const column6Divs = document.getElementsByClassName("circle6")
 const column6 = Array.from(column6Divs)
 const column7Divs = document.getElementsByClassName("circle7")
 const column7 = Array.from(column7Divs)
+ 
 
+// const modalLoad = () => {
+//     let modal = document.querySelector('.modal')
+//     modal.style.display = 'flex'
+// }
 
-const startGame = () => {
+// window.addEventListener('onload', modalLoad)
+
+const clickedSpot = () => {
     columnsArr.forEach(column => column.addEventListener('click', playSlot))
 }
 
@@ -60,17 +70,54 @@ const choosePlayer = (event) => {
         player1 = 'yellow'
         player2 = 'red'
     }
+    clickedSpot()
+
+    document.getElementsByClassName('choose-player')[0].style.display = 'none'
+    console.log(document.getElementsByClassName('choose-player'))
 }
 
 options.addEventListener('click', choosePlayer, {once: true})
 
+checkWin = () => {
+
+    ++moveCount
+    if(moveCount === 42){
+        messageBoard.innerText = `It's a tie!`
+        messageBoard.style.fontSize = '35px'
+        messageBoard.style.fontWeight = 'bold'
+        return true
+    }
+
+    for(i = 0; i < winCombos.length; i++){
+        let winPoss = winCombos[i]
+        if(winPoss.every(c => slotsArr[c].classList.contains(player1))){
+            messageBoard.innerText = `Player #1 Wins!`
+            messageBoard.style.fontSize = '35px'
+            messageBoard.style.fontWeight = 'bold'
+            return true
+        } else if (winPoss.every(c => slotsArr[c].classList.contains(player2))){
+            console.log('player 2 wins')
+            messageBoard.innerText = `Player #2 Wins!`
+            messageBoard.style.fontSize = '35px'
+            messageBoard.style.fontWeight = 'bold'
+            return true
+        }
+    }
+}
+
 const playSlot = (event) => {
     event.currentTarget = this
     let column = event.currentTarget.getAttribute('id')
+    if (isGameOver) return
     let playerColor = isCurrPlayer1 ? player1 : player2
-    const tokens = '.red, .yellow'
     isCurrPlayer1 = !isCurrPlayer1
-
+    
+    if (isCurrPlayer1){
+        messageBoard.innerText = `It's Player #1's turn!`
+    } else {
+        messageBoard.innerText = `It's Player #2's turn!`
+    }
+    
     // column 1
     if(column === 'column1'){
         for(i = column1.length - 1; i >= 0; i--){
@@ -79,7 +126,7 @@ const playSlot = (event) => {
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add(playerColor)
+                    slot.classList.add(playerColor, 'fall')
                     break
                 } 
         }
@@ -92,7 +139,7 @@ const playSlot = (event) => {
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add(playerColor)
+                    slot.classList.add(playerColor, 'fall')
                     break
                 } 
         }
@@ -105,7 +152,7 @@ const playSlot = (event) => {
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add(playerColor)
+                    slot.classList.add(playerColor, 'fall')
                     break
                 } 
         }
@@ -118,7 +165,7 @@ const playSlot = (event) => {
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add(playerColor)
+                    slot.classList.add(playerColor, 'fall')
                     break
                 } 
         }
@@ -131,7 +178,7 @@ const playSlot = (event) => {
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add(playerColor)
+                    slot.classList.add(playerColor, 'fall')
                     break
                 } 
         }
@@ -144,7 +191,7 @@ const playSlot = (event) => {
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add(playerColor)
+                    slot.classList.add(playerColor, 'fall')
                     break
                 } 
         }
@@ -157,11 +204,24 @@ const playSlot = (event) => {
                 if(slot[i] = taken){
                     continue
                 } else {
-                    slot.classList.add(playerColor)
+                    slot.classList.add(playerColor, 'fall')
                     break
                 } 
         }
     }
+    isGameOver = checkWin()
 }
 
-startGame()
+const newGame = () => {
+    isCurrPlayer1 = true
+    isGameOver = false
+    moveCount = 0
+    messageBoard.innerText = `It's player #1's turn!`
+    slotsArr.forEach((slot) => {
+		slot.classList.remove('red')
+        slot.classList.remove('yellow')
+        slot.classList.remove('fall')
+	})
+}
+
+newGameBtn.addEventListener('click', newGame)
