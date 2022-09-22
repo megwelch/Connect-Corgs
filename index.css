@@ -2,11 +2,9 @@ body {
     background-color:  rgb(149, 217, 251);
     background: cover;
     margin: 0 auto;
-    display: flex;
+    display: grid;
     justify-content: center;
-}
-
-main {
+    align-items: center;
     font-family: 'Poppins', sans-serif;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -14,6 +12,7 @@ main {
     height: 95vh;
     gap: 15px;
 }
+
 
 .header {
     display: flex;
@@ -44,61 +43,6 @@ h1 {
     -webkit-text-stroke-width: 3px;
 }
 
-.choose-player {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 2;
-    grid-row-end: 2;
-    display: flex;
-    display: grid;
-    grid-template-rows: 40px 80px;
-    width: 250px;
-    height: 200px;
-    justify-self: center;
-    align-self: end;
-    margin-bottom: 20px;
-    background-color: #005792;
-    border: rgb(243, 222, 97) solid 4px;
-    border-radius: 10px;
-}
-
-span {
-    font-weight: 600;
-    font-size: 25px;
-    
-}
-
-.choose-text {
-    text-align: center;
-    height: 75px;
-    padding: 10px 10px 40px 10px;
-    line-height: 30px;
-    color: white;
-    font-weight: 200;
-    font-size: 20px;
-}
-
-.options {
-    display: flex;
-    justify-content: center;
-}
-
-.token1 {
-    display: flex;
-    height: 90px;
-    padding: 45px 10px 0px 10px;
-}
-
-.token2 {
-    display: flex;
-    height: 90px;
-    padding: 45px 10px 0px 10px;
-}
-
-.token1, .token2:hover {
-    cursor: pointer;
-}
-
 #new-game-btn {
     grid-column-start: 1;
     grid-column-end: 1;
@@ -106,9 +50,9 @@ span {
     grid-row-end: 3;
     justify-self: center;
     align-self: start;
-    display: flex;
     justify-content: center;
     margin-top: 40px;
+    display: none;
 }
 
 button {
@@ -139,13 +83,14 @@ button:hover{
     align-items: center;
     background-color: #005792;
     border-radius: 10px;
+    display: none;
 }
 
 .gameboard:hover {
  cursor: pointer;
 }
 
-.message-board {
+#message-board {
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 2;
@@ -153,7 +98,6 @@ button:hover{
     justify-self: center;
     align-self: end;
     margin-bottom: 20px;
-    display: flex;
     justify-content: center;
     align-items: center;
     border: solid black 1px;
@@ -165,6 +109,7 @@ button:hover{
     color: white;
     border: #005792 solid 3px;
     border-radius: 10px;
+    display: none;
 }
 
 .message-board-text {
@@ -207,4 +152,97 @@ button:hover{
     to {
         transform: translateY(0);
     }
+}
+
+.modal {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    justify-self: center;
+    top: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 600px;
+    background-color: rgb(221, 70, 53);
+    border-radius: 10px;
+    border: solid #005792 5px;
+  }
+
+.modal-title {
+    display: flex;
+    font-size: 40px;
+    background-color: rgb(243, 222, 97);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid #005792 5px;
+    border-radius: 100px;
+    padding: 0px 40px 0px 40px;
+    font-weight: 600;
+    color: #005792;
+}
+
+.instructions {
+    font-size: 15px;
+    margin-top: 20px;
+    padding: 0px 20px 30px 10px;
+    width: 96%;
+    color: white;
+    border-bottom: solid #005792 5px;
+  }
+
+  .instruction-steps {
+    padding-left: 35px;
+    display: block;
+    margin: 8px;
+  }
+
+  hr {
+    width: 100%;
+    height: 7px;
+  }
+
+  .choose-player {
+    background-color: #005792;
+    border: rgb(243, 222, 97) solid 4px;
+    border-radius: 10px;
+}
+
+span {
+    font-weight: 600;
+    font-size: 35px;
+    
+}
+
+.choose-text {
+    padding: 30px 20px;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    font-weight: 200;
+    font-size: 30px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.token1 {
+    display: flex;
+    height: 120px;
+}
+
+.token2 {
+    display: flex;
+    height: 120px;
+}
+
+.token1, .token2:hover {
+    cursor: pointer;
 }

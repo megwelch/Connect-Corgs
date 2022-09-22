@@ -1,14 +1,19 @@
 const columnsArr = Array.from(document.getElementsByClassName("column"))
 const slotsArr = Array.from(document.getElementsByClassName('slot'))
-const messageBoard = document.querySelector('.message-board-text')
-let options = document.querySelector(".options")
-let newGameBtn = document.querySelector('#new-game-btn')
+const messageBoard = document.querySelectorAll('#message-board')
+const options = document.querySelector(".options")
+const newGameBtn = document.querySelector('#new-game-btn')
+const messageText = document.querySelector('.message-board-text')
+const modal = document.querySelector('.modal')
+const gameBoard = document.querySelector('.gameboard')
+const tokens = '.red,.yellow'
+
 let player1 = 'red'
 let player2 = 'yellow'
 let isCurrPlayer1 = true
 let moveCount = 0
 let isGameOver = false
-const tokens = '.red,.yellow'
+
 const winCombos = [
     [0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5], 
     [6, 7, 8, 9], [7, 8, 9, 10], [8, 9, 10, 11],
@@ -51,11 +56,12 @@ const column7 = Array.from(column7Divs)
  
 
 // const modalLoad = () => {
-//     let modal = document.querySelector('.modal')
-//     modal.style.display = 'flex'
+//     gameBoard.style.display = 'none'
+//     messageBoard.style.display = 'none'
+//     newGameBtn.style.display = 'none'
 // }
 
-// window.addEventListener('onload', modalLoad)
+// window.addEventListener('load', modalLoad)
 
 const clickedSpot = () => {
     columnsArr.forEach(column => column.addEventListener('click', playSlot))
@@ -72,8 +78,10 @@ const choosePlayer = (event) => {
     }
     clickedSpot()
 
-    document.getElementsByClassName('choose-player')[0].style.display = 'none'
-    console.log(document.getElementsByClassName('choose-player'))
+    modal.style.display = 'none'
+    gameBoard.style.display = 'flex'
+    messageBoard.style.display = 'flex'
+    newGameBtn.style.display = 'flex'
 }
 
 options.addEventListener('click', choosePlayer, {once: true})
@@ -82,24 +90,24 @@ checkWin = () => {
 
     ++moveCount
     if(moveCount === 42){
-        messageBoard.innerText = `It's a tie!`
-        messageBoard.style.fontSize = '35px'
-        messageBoard.style.fontWeight = 'bold'
+        messageText.innerText = `It's a tie!`
+        messageText.style.fontSize = '35px'
+        messageText.style.fontWeight = 'bold'
         return true
     }
 
     for(i = 0; i < winCombos.length; i++){
         let winPoss = winCombos[i]
         if(winPoss.every(c => slotsArr[c].classList.contains(player1))){
-            messageBoard.innerText = `Player #1 Wins!`
-            messageBoard.style.fontSize = '35px'
-            messageBoard.style.fontWeight = 'bold'
+            messageText.innerText = `Player #1 Wins!`
+            messageText.style.fontSize = '35px'
+            messageText.style.fontWeight = 'bold'
             return true
         } else if (winPoss.every(c => slotsArr[c].classList.contains(player2))){
             console.log('player 2 wins')
-            messageBoard.innerText = `Player #2 Wins!`
-            messageBoard.style.fontSize = '35px'
-            messageBoard.style.fontWeight = 'bold'
+            messageText.innerText = `Player #2 Wins!`
+            messageText.style.fontSize = '35px'
+            messageText.style.fontWeight = 'bold'
             return true
         }
     }
@@ -113,9 +121,9 @@ const playSlot = (event) => {
     isCurrPlayer1 = !isCurrPlayer1
     
     if (isCurrPlayer1){
-        messageBoard.innerText = `It's Player #1's turn!`
+        messageText.innerText = `It's Player #1's turn!`
     } else {
-        messageBoard.innerText = `It's Player #2's turn!`
+        messageText.innerText = `It's Player #2's turn!`
     }
     
     // column 1
@@ -216,7 +224,7 @@ const newGame = () => {
     isCurrPlayer1 = true
     isGameOver = false
     moveCount = 0
-    messageBoard.innerText = `It's player #1's turn!`
+    messageText.innerText = `It's player #1's turn!`
     slotsArr.forEach((slot) => {
 		slot.classList.remove('red')
         slot.classList.remove('yellow')
