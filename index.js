@@ -7,7 +7,12 @@ const messageText = document.querySelector('.message-board-text')
 const modal = document.querySelector('.modal')
 const gameBoard = document.querySelector('.gameboard')
 const tokens = '.red,.yellow'
+const winBoard = document.getElementById('win-count-board')
+const p1WinCount = document.getElementById('p1-win-count')
+const p2WinCount = document.getElementById('p2-win-count')
 
+let p1Wins= 0
+let p2Wins = 0
 let player1 = 'red'
 let player2 = 'yellow'
 let isCurrPlayer1 = true
@@ -53,15 +58,7 @@ const column6Divs = document.getElementsByClassName("circle6")
 const column6 = Array.from(column6Divs)
 const column7Divs = document.getElementsByClassName("circle7")
 const column7 = Array.from(column7Divs)
- 
 
-// const modalLoad = () => {
-//     gameBoard.style.display = 'none'
-//     messageBoard.style.display = 'none'
-//     newGameBtn.style.display = 'none'
-// }
-
-// window.addEventListener('load', modalLoad)
 
 const clickedSpot = () => {
     columnsArr.forEach(column => column.addEventListener('click', playSlot))
@@ -80,8 +77,9 @@ const choosePlayer = (event) => {
 
     modal.style.display = 'none'
     gameBoard.style.display = 'flex'
-    messageBoard.style.display = 'flex'
+    messageBoard[0].style.display = 'flex'
     newGameBtn.style.display = 'flex'
+    winBoard.style.display = 'flex'
 }
 
 options.addEventListener('click', choosePlayer, {once: true})
@@ -92,7 +90,7 @@ checkWin = () => {
     if(moveCount === 42){
         messageText.innerText = `It's a tie!`
         messageText.style.fontSize = '35px'
-        messageText.style.fontWeight = 'bold'
+        messageText.style.fontWeight = '400'
         return true
     }
 
@@ -101,13 +99,17 @@ checkWin = () => {
         if(winPoss.every(c => slotsArr[c].classList.contains(player1))){
             messageText.innerText = `Player #1 Wins!`
             messageText.style.fontSize = '35px'
-            messageText.style.fontWeight = 'bold'
+            messageText.style.fontWeight = '400'
+            ++p1Wins
+            p1WinCount.innerText = p1Wins
             return true
         } else if (winPoss.every(c => slotsArr[c].classList.contains(player2))){
             console.log('player 2 wins')
             messageText.innerText = `Player #2 Wins!`
             messageText.style.fontSize = '35px'
-            messageText.style.fontWeight = 'bold'
+            messageText.style.fontWeight = '400'
+            ++p2Wins
+            p2WinCount.innerText = p2Wins
             return true
         }
     }
@@ -224,7 +226,8 @@ const newGame = () => {
     isCurrPlayer1 = true
     isGameOver = false
     moveCount = 0
-    messageText.innerText = `It's player #1's turn!`
+    messageText.innerText = `It's Player #1's turn!`
+    messageText.style.fontSize = '25px'
     slotsArr.forEach((slot) => {
 		slot.classList.remove('red')
         slot.classList.remove('yellow')

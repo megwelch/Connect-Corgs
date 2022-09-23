@@ -8,7 +8,7 @@ body {
     font-family: 'Poppins', sans-serif;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 3fr 3fr 3fr;
+    grid-template-rows: 1fr 2fr 3fr 4fr;
     height: 95vh;
     gap: 15px;
 }
@@ -46,27 +46,31 @@ h1 {
 #new-game-btn {
     grid-column-start: 1;
     grid-column-end: 1;
-    grid-row-start: 3;
-    grid-row-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    width: 300px;
+    height: 100px;
+    padding: 0px 20px 0px 20px;
     justify-self: center;
-    align-self: start;
+    align-self: center;
     justify-content: center;
-    margin-top: 40px;
     display: none;
 }
 
-button {
-    width: 296px;
-    height: 146px;
+.new-game-text {
+    display:flex;
+    justify-content: center;
+    align-items: center;
     font-size: 40px;
     background-color: rgb(243, 222, 97);
     color: #005792;
     border: #005792 solid 3px;
     border-radius: 10px;
-    font-weight: 800;
+    font-weight: 600;
+    width: 100%;
 }
 
-button:hover{
+#new-game-btn:hover{
     cursor: pointer;
 }
 
@@ -96,15 +100,10 @@ button:hover{
     grid-row-start: 2;
     grid-row-end: 2;
     justify-self: center;
-    align-self: end;
-    margin-bottom: 20px;
-    justify-content: center;
-    align-items: center;
-    border: solid black 1px;
-    font-size: 25px;
+    align-self: center;
     width: 250px;
-    height: 100px;
-    padding: 20px;
+    height: 95px;
+    padding: 0px 20px 0px 20px;
     background-color: rgb(221, 70, 53);
     color: white;
     border: #005792 solid 3px;
@@ -113,7 +112,64 @@ button:hover{
 }
 
 .message-board-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 25px;
     text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+#win-count-board {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    justify-self: center;
+    align-self: start;
+    width: 250px;
+    height: 220px;
+    padding: 0px 20px 0px 20px;
+    background-color: rgb(221, 70, 53);
+    color: white;
+    border: #005792 solid 3px;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+
+.win-count-title {
+    /* height: 80px; */
+    margin: 10px 7px 10px 7px;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.win-players {
+    display: flex;
+    flex-direction: row;
+    gap: 9px;
+}
+
+.p1-wins, .p2-wins {
+    font-size: 25px;
+    padding: 0px 10px 0px 10px;
+    border: #005792 solid 3px;
+    border-radius: 50px;
+    background-color: rgb(243, 222, 97);
+    color: #005792;
+}
+
+.win-counts {
+    display: flex;
+    flex-direction: row;
+    gap: 120px;
+    margin-top: 10px;
+    font-size: 45px;
+    font-weight: 600;
 }
 
 .slot {
@@ -192,21 +248,29 @@ button:hover{
     padding: 0px 20px 30px 10px;
     width: 96%;
     color: white;
-    border-bottom: solid #005792 5px;
-  }
+}
 
-  .instruction-steps {
+.instruction-steps {
     padding-left: 35px;
     display: block;
     margin: 8px;
-  }
+}
 
-  hr {
-    width: 100%;
-    height: 7px;
-  }
+.start-title {
+    display: flex;
+    font-size: 40px;
+    background-color: rgb(243, 222, 97);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid #005792 5px;
+    border-radius: 100px;
+    padding: 0px 40px 0px 40px;
+    font-weight: 600;
+    color: #005792;
+}
 
-  .choose-player {
+.choose-player {
     background-color: #005792;
     border: rgb(243, 222, 97) solid 4px;
     border-radius: 10px;
@@ -219,9 +283,8 @@ span {
 }
 
 .choose-text {
-    padding: 30px 20px;
+    padding: 15px 15px;
     text-align: center;
-    line-height: 40px;
     color: white;
     font-weight: 200;
     font-size: 30px;
@@ -235,12 +298,12 @@ span {
 
 .token1 {
     display: flex;
-    height: 120px;
+    height: 130px;
 }
 
 .token2 {
     display: flex;
-    height: 120px;
+    height: 130px;
 }
 
 .token1, .token2:hover {

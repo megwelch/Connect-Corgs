@@ -19,7 +19,7 @@
     </header>
 
     <div id="new-game-btn">
-        <button>New Game</button>
+        <div class="new-game-text">New Game</div>
     </div>
 
     <container class="gameboard">
@@ -82,7 +82,19 @@
     </container>
 
     <div id="message-board">
-        <div class="message-board-text">Choose your token to start the game!</div>
+        <div class="message-board-text">It's Player #1's turn!</div>
+    </div>
+
+    <div id="win-count-board">
+        <div class="win-count-title">Win Count</div>
+        <div class="win-players">
+            <div class="p1-wins">Player 1</div>
+            <div class="p2-wins">Player 2</div>
+        </div>
+        <div class="win-counts">
+            <div id="p1-win-count"></div>
+            <div id="p2-win-count"></div>
+        </div>
     </div>
 
     <aside class="modal">
@@ -94,7 +106,10 @@
             <p class="instruction-steps">2. Click on the column you want to place your token in and the game will alternate turns between player #1 and player #2 </p>
             <p class="instruction-steps">3. Be the first player to get 4 token in a row horizontally, vertically, or diagonally and you win!</p>
         </div>
-        <div class="choose-text">Player #1 - Choose <br><span>snoots</span> or <span>boots</span></div>
+        <div class="start-title">
+            Choose to Start
+        </div>
+        <div class="choose-text"><span>snoots</span> or <span>boots</span></div>
         <div class="options">
             <div><img class="token1" src="./images/red-chip.png"></img></div>
             <div><img class="token2" src="./images/yellow-chip.png"></img></div>
