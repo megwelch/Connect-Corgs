@@ -13,7 +13,6 @@ body {
     gap: 15px;
 }
 
-
 .header {
     display: flex;
     justify-content: center;
@@ -278,8 +277,7 @@ h1 {
 
 span {
     font-weight: 600;
-    font-size: 35px;
-    
+    font-size: 35px;   
 }
 
 .choose-text {
