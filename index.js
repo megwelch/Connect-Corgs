@@ -1,3 +1,4 @@
+// Both columnsArr and slotsArr can be changed to a .querySelectorAll(). .getElementsByClassName returns an HTMLCollection so that's why you have to do this transformation for the .forEach but .querySelectorAll returns a NodeList which we can use all array iteration methods on.
 const columnsArr = Array.from(document.getElementsByClassName("column"))
 const slotsArr = Array.from(document.getElementsByClassName('slot'))
 const messageBoard = document.querySelectorAll('#message-board')
@@ -116,110 +117,114 @@ checkWin = () => {
 }
 
 const playSlot = (event) => {
-    event.currentTarget = this
-    let column = event.currentTarget.getAttribute('id')
-    if (isGameOver) return
-    let playerColor = isCurrPlayer1 ? player1 : player2
-    isCurrPlayer1 = !isCurrPlayer1
-    
-    if (isCurrPlayer1){
-        messageText.innerText = `It's Player #1's turn!`
-    } else {
-        messageText.innerText = `It's Player #2's turn!`
-    }
-    
-    // column 1
-    if(column === 'column1'){
-        for(i = column1.length - 1; i >= 0; i--){
-            let slot = column1[i]
-            let taken = (slot.matches(tokens))
-                if(slot[i] = taken){
-                    continue
-                } else {
-                    slot.classList.add(playerColor, 'fall')
-                    break
-                } 
-        }
-    }
-    // column 2
-    if(column === 'column2'){
-        for(i = column2.length - 1; i >= 0; i--){
-            let slot = column2[i]
-            let taken = (slot.matches(tokens))
-                if(slot[i] = taken){
-                    continue
-                } else {
-                    slot.classList.add(playerColor, 'fall')
-                    break
-                } 
-        }
-    }
-    // column 3
-    if(column === 'column3'){
-        for(i = column3.length - 1; i >= 0; i--){
-            let slot = column3[i]
-            let taken = (slot.matches(tokens))
-                if(slot[i] = taken){
-                    continue
-                } else {
-                    slot.classList.add(playerColor, 'fall')
-                    break
-                } 
-        }
-    }
-    // column 4
-    if(column === 'column4'){
-        for(i = column4.length - 1; i >= 0; i--){
-            let slot = column4[i]
-            let taken = (slot.matches(tokens))
-                if(slot[i] = taken){
-                    continue
-                } else {
-                    slot.classList.add(playerColor, 'fall')
-                    break
-                } 
-        }
-    }
-    // column 5
-    if(column === 'column5'){
-        for(i = column5.length - 1; i >= 0; i--){
-            let slot = column5[i]
-            let taken = (slot.matches(tokens))
-                if(slot[i] = taken){
-                    continue
-                } else {
-                    slot.classList.add(playerColor, 'fall')
-                    break
-                } 
-        }
-    }
-    // column 6
-    if(column === 'column6'){
-        for(i = column6.length - 1; i >= 0; i--){
-            let slot = column6[i]
-            let taken = (slot.matches(tokens))
-                if(slot[i] = taken){
-                    continue
-                } else {
-                    slot.classList.add(playerColor, 'fall')
-                    break
-                } 
-        }
-    }
-    // column 7
-    if(column === 'column7'){
-        for(i = column7.length - 1; i >= 0; i--){
-            let slot = column7[i]
-            let taken = (slot.matches(tokens))
-                if(slot[i] = taken){
-                    continue
-                } else {
-                    slot.classList.add(playerColor, 'fall')
-                    break
-                } 
-        }
-    }
-    isGameOver = checkWin()
+	// Looks like you can remove this line all together. `this` here is refering to the window object and you won't need to reassign the `event` here to the window object. Also if you run these console logs you can see that `event.currentTarget` is unchanged after the assignment. This is because `event.currentTarget` is a read only property. https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget
+	console.log('this', this)
+	event.currentTarget = this
+	console.log('event.currentTarget', event.currentTarget)
+	let column = event.currentTarget.getAttribute('id')
+	if (isGameOver) return
+	let playerColor = isCurrPlayer1 ? player1 : player2
+	isCurrPlayer1 = !isCurrPlayer1
+
+	if (isCurrPlayer1) {
+		messageText.innerText = `It's Player #1's turn!`
+	} else {
+		messageText.innerText = `It's Player #2's turn!`
+	}
+
+    // love all of the backwards looping here :)
+	// column 1
+	if (column === 'column1') {
+		for (i = column1.length - 1; i >= 0; i--) {
+			let slot = column1[i]
+			let taken = slot.matches(tokens)
+			if ((slot[i] = taken)) {
+				continue
+			} else {
+				slot.classList.add(playerColor, 'fall')
+				break
+			}
+		}
+	}
+	// column 2
+	if (column === 'column2') {
+		for (i = column2.length - 1; i >= 0; i--) {
+			let slot = column2[i]
+			let taken = slot.matches(tokens)
+			if ((slot[i] = taken)) {
+				continue
+			} else {
+				slot.classList.add(playerColor, 'fall')
+				break
+			}
+		}
+	}
+	// column 3
+	if (column === 'column3') {
+		for (i = column3.length - 1; i >= 0; i--) {
+			let slot = column3[i]
+			let taken = slot.matches(tokens)
+			if ((slot[i] = taken)) {
+				continue
+			} else {
+				slot.classList.add(playerColor, 'fall')
+				break
+			}
+		}
+	}
+	// column 4
+	if (column === 'column4') {
+		for (i = column4.length - 1; i >= 0; i--) {
+			let slot = column4[i]
+			let taken = slot.matches(tokens)
+			if ((slot[i] = taken)) {
+				continue
+			} else {
+				slot.classList.add(playerColor, 'fall')
+				break
+			}
+		}
+	}
+	// column 5
+	if (column === 'column5') {
+		for (i = column5.length - 1; i >= 0; i--) {
+			let slot = column5[i]
+			let taken = slot.matches(tokens)
+			if ((slot[i] = taken)) {
+				continue
+			} else {
+				slot.classList.add(playerColor, 'fall')
+				break
+			}
+		}
+	}
+	// column 6
+	if (column === 'column6') {
+		for (i = column6.length - 1; i >= 0; i--) {
+			let slot = column6[i]
+			let taken = slot.matches(tokens)
+			if ((slot[i] = taken)) {
+				continue
+			} else {
+				slot.classList.add(playerColor, 'fall')
+				break
+			}
+		}
+	}
+	// column 7
+	if (column === 'column7') {
+		for (i = column7.length - 1; i >= 0; i--) {
+			let slot = column7[i]
+			let taken = slot.matches(tokens)
+			if ((slot[i] = taken)) {
+				continue
+			} else {
+				slot.classList.add(playerColor, 'fall')
+				break
+			}
+		}
+	}
+	isGameOver = checkWin()
 }
 
 const newGame = () => {
