@@ -326,6 +326,7 @@ span {
 
     .header {
         width: 80vw;
+        margin-top: 30px;
     }
 
     .title {
@@ -335,7 +336,8 @@ span {
     }
 
     h1 {
-        font-size: 36px;
+        font-size: 30px;
+        -webkit-text-stroke-width: 0px;
     }
 
     .gameboard {
@@ -343,8 +345,8 @@ span {
     }
 
     .slot {
-        height: 40px;
-        width: 40px;
+        height: 35px;
+        width: 35px;
     }
 
     #new-game-btn {
@@ -359,14 +361,62 @@ span {
         width: 90vw;
         display: flex;
         flex-direction: column;
-        height: 70vh;
+        min-height: 70vh;
     }
 
     .modal-title {
-        font-size: 30px;
+        font-size: 25px;
     }
 
     .start-title {
+        font-size: 25px;
+    }
+
+    .instructions {
+        font-size: 12px;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    .choose-text {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    .token1, .token2 {
+        height: 90px;
+    }
+
+    .win-count-title {
         font-size: 30px;
+    }
+}
+
+@media (min-width: 770px) and (max-width: 1100px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 60px;
+        color: rgb(221, 70, 53);
+        -webkit-text-stroke-color: white;
+        -webkit-text-stroke-width: 3px;
+    }
+
+    .instructions {
+        width: 60%;
+    }
+
+    .slot {
+        height: 60px;
+        width: 60px;
+    }
+
+    #win-count-board {
+        align-self: center;
     }
 }
